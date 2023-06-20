@@ -21,6 +21,7 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
+        <Logo style={{opacity: 0}}/>
       </MainHeader>
     </header>
   );
@@ -29,16 +30,26 @@ const Header = () => {
 const MainHeader = styled.div`
   padding: 0 32px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  gap: 48px;
+  align-self: center;
+  margin: 4px auto 0 auto;
+  padding: 0 10px;
+`;
 
 const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
   color: ${COLORS.gray[900]};
-  font-weight: ${WEIGHTS.medium};
+  font-weight: ${WEIGHTS.medium}; 
 
   &:first-of-type {
     color: ${COLORS.secondary};
