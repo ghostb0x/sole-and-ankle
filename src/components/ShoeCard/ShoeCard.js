@@ -32,21 +32,26 @@ const ShoeCard = ({
       : 'default'
 
   return (
-    <Link href={`/shoe/${slug}`}>
-      <Wrapper>
-        <ImageWrapper>
-          <Image alt="" src={imageSrc} />
-        </ImageWrapper>
-        <Spacer size={12} />
-        <Row>
-          <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
-        </Row>
-        <Row>
-          <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
-        </Row>
-      </Wrapper>
-    </Link>
+    <Wrapper>
+      <Link href={`/shoe/${slug}`}>
+        <Wrapper>
+          <ImageWrapper>
+            <Image
+              alt=""
+              src={imageSrc}
+            />
+          </ImageWrapper>
+          <Spacer size={12} />
+          <Row>
+            <Name>{name}</Name>
+            <Price>{formatPrice(price)}</Price>
+          </Row>
+          <Row>
+            <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          </Row>
+        </Wrapper>
+      </Link>
+    </Wrapper>
   );
 };
 
@@ -55,13 +60,17 @@ const Link = styled.a`
   color: inherit;
 `;
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  flex: 1 1 300px;
+`;
 
 const ImageWrapper = styled.div`
   position: relative;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  width: 100%;
+`;
 
 const Row = styled.div`
   font-size: 1rem;
@@ -82,5 +91,7 @@ const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
 `;
+
+
 
 export default ShoeCard;
